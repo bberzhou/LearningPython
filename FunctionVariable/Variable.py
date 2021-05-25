@@ -263,16 +263,18 @@ def keyword1(name, *, city, add):
     print(name, city, add)
 
 
-keyword1('Wang', city='Chongqing',add='Jiangbei')
+keyword1('Wang', city='Chongqing', add='Jiangbei')
 # Wang Chongqing Jiangbei
 
 
 print('----------------------------------------------------------------')
+
+
 # 参数组合,一个函数里面有多个参数
 
 
 def func1(a, b, c=0, *args, **kw):
-    print('a=', a, 'b=', b,  'c=',c, 'args=', args, 'kw=', kw)
+    print('a=', a, 'b=', b, 'c=', c, 'args=', args, 'kw=', kw)
 
 
 func1(1, 2)
@@ -285,18 +287,20 @@ func1(3, 6, 8, 'mm', 'ppp', key='Music')
 # a= 3 b= 6 c= 8 args= ('mm', 'ppp') kw= {'key': 'Music'}
 # 通过一个tuple和dict，你也可以调用上述函数：
 argument = (1, 2, 3, 4, 5)  # tuple
-key = {'d':99, 'X':'dd'}    # list
-func1(3,8,9,*argument,**key)
+key = {'d': 99, 'X': 'dd'}  # list
+func1(3, 8, 9, *argument, **key)
 # a= 3 b= 8 c= 9 args= (1, 2, 3, 4, 5) kw= {'d': 99, 'X': 'dd'}
 # 并且在调用的时候还有一个问题
-func1(*argument,**key)
+func1(*argument, **key)
+
+
 # 输出结果：a= 1 b= 2 c= 3 args= (4, 5) kw= {'d': 99, 'X': 'dd'}
 
 
 def product(x, *y):
     su = 1
     if y is None:
-        return x*1
+        return x * 1
     else:
         for i in y:
             su = su * i
@@ -331,5 +335,9 @@ else:
 #       关键字参数既可以直接传入：func(a=1, b=2)，
 #       又可以先组装dict，再通过**kw传入：func(**{'a': 1, 'b': 2})。
 
-
-
+"""
+    多行注释写法1
+"""
+'''
+    多行注释写法2
+'''

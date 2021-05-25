@@ -27,7 +27,7 @@ print(classmates)
 
 L = ['Apple', 123, True]
 L1 = ['python', 'java', ['asp', 'php'], 'scheme']
-len(L1) # 4
+len(L1)  # 4
 
 
 # 另一种有序列表叫元组，tuple,tuple和list非常类似，但是tuple一旦初始化就不能修改

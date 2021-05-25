@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+ # -*- coding: utf-8 -*-
 from collections.abc import Iterable
 
 # 如果给定一个list或tuple，我们可以通过for循环来遍历这个list或tuple，
