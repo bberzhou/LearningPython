@@ -16,6 +16,33 @@ if age >= 18:
 
     # if x:
     #     print('')
+
+#     练习
+'''
+小明身高1.75，体重80.5kg。请根据BMI公式（体重除以身高的平方）帮小明计算他的BMI指数，并根据BMI指数：
+
+低于18.5：过轻
+18.5-25：正常
+25-28：过重
+28-32：肥胖
+高于32：严重肥胖
+用if-elif判断并打印结果：
+'''
+
+height = 1.75
+weight = 80.5
+bmi = height / (weight * weight)
+if bmi < 18.5:
+    print("过轻")
+elif 25 > bmi >= 18.5:
+    print("正常")
+elif 28 > bmi >= 25:
+    print("过重")
+elif 32 > bmi >= 28:
+    print('肥胖')
+else:
+    print('严重肥胖')
+
 # 二、多重嵌套
 num = 10
 if num >= 18:
@@ -61,7 +88,7 @@ su = 0
 for x in list(range(101)):
     su += x
 
-print(su)
+print(su)   # 5050
 
 # 使用while循环计算0到100
 sum1 = 0
@@ -71,8 +98,8 @@ while n >= 0:
     n = n - 1
 print(sum1)
 
-# break关键字,在循环中，break语句可以提前退出循环
 
+# break关键字,在循环中，break语句可以提前退出循环
 n1 = 1
 while n1 <= 100:
     if n1 > 10:  # 当n = 11时，条件满足，执行break语句
@@ -92,6 +119,7 @@ while n2 < 10:
 
 # break语句可以在循环过程中直接退出循环，而continue语句可以提前结束本轮循环，并直接开始下一轮循环。这两个语句通常都必须配合if语句使用。
 
-# 要特别注意，不要滥用break和continue语句。break和continue会造成代码执行逻辑分叉过多，容易出错。大多数循环并不需要用到break和continue语句，上面的两个例子，都可以通过改写循环条件或者修改循环逻辑，去掉break和continue语句。
+# 要特别注意，不要滥用break和continue语句。break和continue会造成代码执行逻辑分叉过多，容易出错。
+# 大多数循环并不需要用到break和continue语句，上面的两个例子，都可以通过改写循环条件或者修改循环逻辑，去掉break和continue语句。
 
 # 有些时候，如果代码写得有问题，会让程序陷入“死循环”，也就是永远循环下去。这时可以用Ctrl+C退出程序，或者强制结束Python进程。
