@@ -1,12 +1,22 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# 条件判断
+
+# 一、条件判断
 age = 20
 if age >= 18:
     print('your age is :', age)
 else:
     print('child')
+    # 根据Python的缩进规则，如果if语句判断是True，就把缩进的两行print语句执行了，否则，什么也不做。
+if age >= 18:
+    print('your age is: ', age)
+    print('adult')
 
-# 多重嵌套
+    # if判断条件还可以简写，比如写：
+
+    # if x:
+    #     print('')
+# 二、多重嵌套
 num = 10
 if num >= 18:
     print('adult')
