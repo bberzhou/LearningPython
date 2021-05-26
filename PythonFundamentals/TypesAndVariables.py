@@ -1,3 +1,5 @@
+# !/usr/bin/env python3
+# -*- coding: utf-8 -*-
 # python 中的类型和变量
 
 # 一、整数
@@ -25,6 +27,9 @@ print('''line1
 ...line2
 ...line3''')
 
+# 在最新的Python 3版本中，字符串是以Unicode编码的
+# 对于单个字符的编码，Python提供了ord()函数获取字符的整数表示，chr()函数把编码转换为对应的字符
+print(ord('d'))   # 65
 
 # 四、布尔值，布尔值和布尔代数的表示完全一致，一个布尔值只有True、False两种值，要么是True，要么是False
 # 在Python中可以直接用True和False来表示布尔值，也可以通过布尔运算出来
