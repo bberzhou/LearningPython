@@ -1,6 +1,150 @@
+#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
+
+# 一、函数的参数
+# 定义函数的时候，我们把参数的名字和位置确定下来，函数的接口定义就完成了。
+# Python的函数定义非常简单，但灵活度却非常大。
+# 除了正常定义的必选参数外，还可以使用默认参数、可变参数和关键字参数，
+# 使得函数定义出来的接口，不但能处理复杂的参数，还可以简化调用者的代码。
+
+# 二、位置参数
+def power(x):
+    return x*x
+# 对于power(x)函数，参数x就是一个位置参数
+# 当我们调用power函数时，必须传入有且仅有的一个参数x
+
+# 计算x的n次方
+
+
+def powerN(x, n):
+    result = 1
+    while n > 0:
+        n = n-1
+        result = result * x
+    return result
+
+
+print(powerN(5, 4))     # 625
+# power(x, n)函数有两个参数：x和n，这两个参数都是位置参数，调用函数时，传入的两个值按照位置顺序依次赋给参数x和n
 # 一个函数在内部调用自身本身，这个函数就是递归函数。
 # 典型的计算阶乘的函数
+
+
+# 三、默认参数
+def powerN1(x, n=2):
+    result = 1
+    while n > 0:
+        result = result * x
+        n = n-1
+    return result
+
+
+print(powerN1(4, 3))     # 64
+# 设置一个默认值n
+print(powerN1(3))
+# 9，这里即使传入的只有一个参数，但是有一个默认参数n，但是对于n大于2的情况，必须明确地传入n
+'''
+    默认参数可以简化函数的调用。设置默认参数时，有几点要注意：
+    一是必选参数在前，默认参数在后，否则Python的解释器会报错.
+    二是如何设置默认参数。当函数有多个参数时，把变化大的参数放前面，变化小的参数放后面。变化小的参数就可以作为默认参数
+    
+'''
+
+
+def enroll(name, gender):
+    print('name:', name)
+    print('gender:', gender)
+
+
+def enroll1(name, gender, age=6, city='Beijing'):
+    print('name:', name)
+    print('gender:', gender)
+    print('age:', age)
+    print('city:', city)
+
+# 比较这两个函数，第二个就设置了两个默认参数值,只有与默认参数不符合的学术才需要提供额外的信息
+# 有多个默认参数时，调用的时候，既可以按顺序提供默认参数，也可以不按顺序提供部分默认参数。
+# 当不按顺序提供部分默认参数时，需要把参数名写上。
+
+
+enroll1('Bob', 'M', 7)
+enroll1('Adam', 'M', city='Shanghai')    # age就是默认的参数，而city是新的
+
+
+# 默认参数很有用，但使用不当，也会掉坑里。默认参数有个最大的坑，演示如下：
+
+def add_end(L=[]):
+    L.append('END')
+    return L
+
+
+# 正常调用
+
+
+print(add_end([1, 2, 3]))  # [1, 2, 3, 'END']
+
+# 当使用默认参数调用的时候，开始也是正常的
+print(add_end())    # ['END']
+# 再次调用就会出现问题
+print(add_end())    # ['END', 'END']
+# 默认参数是[]，但是函数似乎每次都“记住了”上次添加了'END'后的list
+# Python函数在定义的时候，默认参数L的值就被计算出来了，即[]，因为默认参数L也是一个变量，
+# 它指向对象[]，每次调用该函数，如果改变了L的内容，
+# 则下次调用时，默认参数的内容就变了，不再是函数定义时的[]了
+# 所以要注意一点：定义默认参数要牢记一点：默认参数必须指向不变对象！
+
+# 对于上面这个例子，可以使用None这个不变对象来实现
+
+
+def add_end1(L=None):
+    # 先判断L是否为None
+    if L is None:
+        # 如果未传入参数，就将L置为[]，然后再添加一个'END'
+        L = []
+
+    # 如果L不为[]，直接添加
+    L.append('END')
+    return L
+
+
+print(add_end1())    # ['END']  默认参数为None
+print(add_end1())    # ['END']
+print(add_end1([1, 2, 3]))  # [1, 2, 3, 'END']
+
+# 四、可变参数
+# 在Python函数中，还可以定义可变参数。
+# 以数学题为例子，给定一组数字a，b，c……，请计算a2 + b2 + c2 + ……
+
+
+def calc(numbers):
+    sum1 = 0
+    for n in numbers:
+        sum1 = sum1 + n * n
+    return sum1
+
+# 调用的时候，需要先组装出一个list或tuple
+
+
+print(calc([1, 2, 3]))  # 14
+print(calc((1, 3, 7)))  # 59
+
+# 改为可变参数的形式
+
+
+def calc1(*numbers):
+    sum1 = 0
+    for n in numbers:
+        sum1 = sum1 + n * n
+    return sum1
+# 定义可变参数和定义一个list或tuple参数相比，仅仅在参数前面加了一个*号。
+# 在函数内部，参数numbers接收到的是一个tuple
+# 调用该函数时，可以传入任意个参数，包括0个参数
+
+
+print(calc1(1, 2, 3))  # 14
+
+
 def fact(n):
     if n == 1:
         return 1
