@@ -80,11 +80,10 @@ def add_end(L=[]):
 
 
 # 正常调用
-
-
 print(add_end([1, 2, 3]))  # [1, 2, 3, 'END']
 
 # 当使用默认参数调用的时候，开始也是正常的
+
 print(add_end())    # ['END']
 # 再次调用就会出现问题
 print(add_end())    # ['END', 'END']
