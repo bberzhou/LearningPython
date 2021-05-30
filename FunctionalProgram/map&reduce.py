@@ -1,6 +1,8 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
 from functools import reduce
 
-
+# Python对函数式编程提供部分支持。由于Python允许使用变量，因此，Python不是纯函数式编程语言。
 # map 和reduce
 
 # 一、map接收两个参数，一个是函数，一个是Iterable,map讲传入的函数依次作用到序列的每个元素，
