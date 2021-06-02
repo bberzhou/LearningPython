@@ -19,8 +19,7 @@ x = b'ABC'
 # 要注意区分'ABC'和b'ABC'，前者是str，后者虽然内容显示得和前者一样，但bytes的每个字符都只占用一个字节
 print('ABC'.encode('ascii'))  # b'ABC'
 print('中文'.encode('utf-8'))  # b'\xe4\xb8\xad\xe6\x96\x87'
-# print('中文'.encode('ascii'))    # UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)65
-
+# print('中文'.encode('ascii')) # UnicodeEncodeError: 'ascii' codec can't encode characters in position 0-1: ordinal not in range(128)65
 # 这里报错是因为，纯英文的str可以用ASCII编码为bytes，内容是一样的，含有中文的str可以用UTF-8编码为bytes。
 # 含有中文的str无法用ASCII编码，因为中文编码的范围超过了ASCII编码的范围，Python会报错
 

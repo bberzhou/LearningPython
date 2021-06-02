@@ -48,6 +48,7 @@ print(L[::5])
 print(L[:])
 # 此时相当于复制一个原来得list
 
+
 # tuple也是一种list，唯一区别是tuple不可变。
 # 因此，tuple也可以用切片操作，只是操作的结果仍是tuple
 tuple1 = (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
